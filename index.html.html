@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator 2 Bez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    *{
+        text-align: center;
+        font-size: 75px;
+        background-color: yellow;
+        font-family: sans-serif;
+        align-items: center;
+    }
+    table, tr, td{
+        border: double 2px;
+        background-color: white;
+        border-collapse: separate;
+    }
+    table{
+        align-self: center;
+        margin: auto;
+    }
+    td{
+        width: 75px;
+    }
+    #bunker{
+        height: 85px;
+        text-align: left;        
+    }
+    #result{
+        font-size: 40px;
+        font-weight: 100;
+        color: lightgray;
+        text-align: left;
+    }
+    #delete{
+        background-color: green;
+    }
+    #backspace{
+       color: black; 
+    }
+</style>
+<body>
+    <table>
+       <tr>
+        <td colspan="4" id="result"></td>
+       </tr>
+       <tr>
+        <td colspan="4" id="bunker"></td>
+       </tr>
+       <tr>
+        <td onclick="printOnScreen('1')">1</td>
+        <td onclick="printOnScreen('2')">2</td>
+        <td onclick="printOnScreen('3')">3</td>
+        <td onclick="printOnScreen('+')">+</td>
+       </tr> 
+       <tr>
+        <td onclick="printOnScreen('4')">4</td>
+        <td onclick="printOnScreen('5')">5</td>
+        <td onclick="printOnScreen('6')">6</td>
+        <td onclick="printOnScreen('-')">-</td>
+       </tr> 
+       <tr>
+        <td onclick="printOnScreen('7')">7</td>
+        <td onclick="printOnScreen('8')">8</td>
+        <td onclick="printOnScreen('9')">9</td>
+        <td onclick="printOnScreen('*')">x</td>
+       </tr>       
+        <tr>
+        <td onclick="clearAll()">C</td>
+        <td onclick="printOnScreen('0')">0</td>
+        <td onclick="computeScreen()">=</td>
+        <td onclick="printOnScreen('/')">/</td>
+       </tr>  
+       <tr>
+        <td colspan="4" onclick="clearLast()">CE</td>
+       </tr>
+    </table>
+    <!-- <Div id="delete"><i id="delete" class="fa fa-x"></i></Div> -->
+
+    <script type="text/javascript">
+        var resultValue = document.getElementById('result');
+    
+        function printOnScreen(value){
+            // resultValue.innerText = resultValue.innerText + value;
+            resultValue.innerText += value;
+            bunker.innerText = value;
+        }
+    
+        function computeScreen(){
+            resultValue.innerText = eval(resultValue.innerText);
+            bunker.innerText = eval(resultValue.innerText);
+        }
+    
+        function clearAll(){
+            result.innerText = '';
+            bunker.innerText = '';
+        }
+        function clearLast(){
+            result.innerText = result.innerText.slice(0,-1);
+            bunker.innerText = bunker.innerText.slice(0, -1);
+        }
+      </script>
+</body>
+</html>
